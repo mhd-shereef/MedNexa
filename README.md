@@ -1,67 +1,89 @@
 # MedNexa — Intelligent Healthcare Infrastructure & Ecosystem
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel&logoColor=white)](https://vercel.com)
+<div align="center">
 
-**MedNexa** is an integrated health technology platform uniting predictive wellness screening with specialized clinical electronic medical records.
+![MedNexa Platform](https://img.shields.io/badge/Platform-MedNexa%20Health%20OS-0C1A2E?style=for-the-badge&logoColor=white)
+![Next.js 14](https://img.shields.io/badge/Next.js-14.0-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![HIPAA Ready](https://img.shields.io/badge/Security-HIPAA%20Compliant-0D3A35?style=for-the-badge)
+
+<p align="center">
+  <b>Uniting predictive risk screening with specialized clinical electronic medical records.</b>
+</p>
+
+[Explore Diagnox ↗](https://diagnox-healthcare.vercel.app/) • [Explore DERMA ↗](https://github.com/mhd-shereef/Derma)
+
+</div>
 
 ---
 
-## 🌐 The MedNexa Ecosystem
+## 🌐 The MedNexa Vision
+
+**MedNexa** is an integrated health technology platform engineered for the modern medical continuum. By connecting consumer-grade predictive risk screening with hospital-grade electronic medical records, MedNexa bridges the critical gap between early symptom detection and specialized physician consultation.
 
 ```
-                               ┌─────────────────────────────┐
-                               │           MedNexa           │
-                               │      (Ecosystem Portal)     │
-                               │     Next.js 14 on Vercel    │
-                               └──────────────┬──────────────┘
-                                              │
-                      ┌───────────────────────┴───────────────────────┐
-                      ▼                                               ▼
-       ┌─────────────────────────────┐                 ┌─────────────────────────────┐
-       │           Diagnox           │                 │            DERMA            │
-       │    AI Health Risk Index     │                 │   Dermatology Clinical OS   │
-       │   Early Disease Screening   │                 │   EMR, Imaging & Practice   │
-       │  diagnox-healthcare.vercel  │                 │    mhd-shereef/Derma        │
-       └─────────────────────────────┘                 └─────────────────────────────┘
+                               ┌─────────────────────────────────────────┐
+                               │           MedNexa Ecosystem             │
+                               │      Next.js 14 Unified Health Hub      │
+                               └────────────────────┬────────────────────┘
+                                                    │
+                      ┌─────────────────────────────┴─────────────────────────────┐
+                      ▼                                                           ▼
+       ┌─────────────────────────────┐                             ┌─────────────────────────────┐
+       │           Diagnox           │                             │            DERMA            │
+       │    AI Health Risk Index     │                             │   Dermatology Clinical OS   │
+       │  Predictive Risk Screening  │                             │   EMR, Imaging & Practice   │
+       │  diagnox-healthcare.vercel  │                             │    mhd-shereef/Derma        │
+       └─────────────────────────────┘                             └─────────────────────────────┘
 ```
 
-### Products:
-1. **[Diagnox](https://diagnox-healthcare.vercel.app/)** — AI-assisted health analysis for multi-factor cardiovascular, diabetes, and oncological risk screening.
-2. **[DERMA](https://github.com/mhd-shereef/Derma)** — Cloud-based electronic medical record (EMR) designed specifically for aesthetic dermatology practices (photographic mapping, live queue, visit templates, and GST billing).
+---
+
+## 💎 Core Products
+
+### 1. Diagnox — AI-Assisted Health Risk Screening
+An intuitive, patient-facing diagnostic intelligence engine designed to detect chronic disease markers and provide actionable health observations before clinical symptoms escalate.
+
+- **Multi-Factor Risk Indices**: Evaluates personalized risk markers for cardiovascular wellness, type-2 diabetes, and early-stage oncological risk indicators.
+- **Explainable Health Metrics**: Transparent scoring algorithms that inform patients without replacing licensed physician evaluation.
+- **Seamless Provider Referral**: Directly feeds structured health questionnaires and biometric observations into physician consultation queues.
+- **Live Platform**: [diagnox-healthcare.vercel.app](https://diagnox-healthcare.vercel.app/)
 
 ---
 
-## 🚀 Deployment (Vercel)
+### 2. DERMA — Aesthetic Dermatology Clinical OS
+A specialized, multi-tenant clinical operating system built from the ground up for medical and aesthetic dermatology practices.
 
-Deploying the MedNexa portal to Vercel takes 1 minute:
-
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard) → **Add New…** → **Project**.
-2. Select your repository: **`mhd-shereef/MedNexa`**.
-3. **Framework Preset**: `Next.js` *(automatically detected)*.
-4. **Root Directory**: `./` *(leave default)*.
-5. *(Optional)* Add Environment Variables if you want custom domains for the products:
-   - `NEXT_PUBLIC_DIAGNOX_URL`: `https://diagnox-healthcare.vercel.app/`
-   - `NEXT_PUBLIC_DERMA_URL`: `https://your-derma-frontend.vercel.app`
-6. Click **Deploy**!
+- **Standardized Photographic Mapping**: Calibrated multi-angle photo documentation with automated before/after comparative analysis.
+- **Vector Anatomical Charting**: High-precision lesion tracking across 12 standard anatomical planes with ICD-10 diagnostic indexing.
+- **Real-Time Patient Flow**: WebSocket-driven clinical queue managing registration, triage, consultation, and procedure recovery.
+- **GST-Compliant Clinical Billing**: Procedure packages, automated product consumption tracking, and tax-ready invoice generation.
+- **Repository & Architecture**: [github.com/mhd-shereef/Derma](https://github.com/mhd-shereef/Derma)
 
 ---
 
-## 💻 Local Development
+## 🏛 Platform Architecture
 
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Run the development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the live portal.
+| Pillar | Technology | Implementation Detail |
+| :--- | :--- | :--- |
+| **Frontend Framework** | Next.js 14 (App Router) | Server-side rendering, dynamic route segmentation, optimized bundle splitting |
+| **User Interface** | Tailwind CSS + Radix UI | Custom medical aesthetic design system, dark-mode ready tokens, WCAG 2.1 AA accessible |
+| **Typography & Styling** | Inter & Playfair Display | Editorial serif typography paired with high-legibility clinical interfaces |
+| **State & Data Fetching** | TanStack Query + Zustand | Reactive client state with optimistic cache updates and WebSocket event listening |
+| **Security Architecture** | HIPAA & GDPR Aligned | End-to-end TLS 1.3 encryption, role-based access control (RBAC), immutable audit logging |
 
 ---
 
-## 📄 License
-Proprietary. Copyright (c) MedNexa Health Systems. All rights reserved.
+## 🛡 Security & Compliance Standards
+
+- **Tenant Isolation**: Strictly enforced database and object store isolation ensuring complete data segregation between clinical practices.
+- **Encrypted Photo Storage**: Medical photography is stored in private, encrypted S3 buckets and accessed exclusively via short-lived, signed URLs.
+- **Audit Trails**: Every clinician view, update, export, and record modification is recorded in an immutable append-only audit log.
+- **Zero-Trust Token Rotation**: Short-lived JWT access tokens paired with cryptographically secure, rotating refresh tokens.
+
+---
+
+<div align="center">
+  <sub>Proprietary Software. Copyright © MedNexa Health Systems. All rights reserved.</sub>
+</div>
