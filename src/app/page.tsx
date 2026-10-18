@@ -570,62 +570,62 @@ export default function MedNexaHomePage() {
                   DERMA
                 </h3>
                 <p className="text-sm text-[#0C1A2E]/80 mt-2 leading-relaxed">
-                  An electronic medical records system shaped specifically for dermatology: standardized photographic mapping, facial vector charting, biopsy tracking, and daily clinic queues.
+                  The specialized EMR for medical, surgical, and aesthetic dermatology: standardized photographic mapping, facial vector charting, laser device parameter logs, and multi-provider encounter management.
                 </p>
               </div>
 
-              {/* Real Procedural Specialties Strip */}
+              {/* Clinical EMR Modules Strip */}
               <div className="space-y-2">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0C1A2E]/60">
-                  Specialized Procedures
+                  Clinical EMR Modules
                 </span>
                 <div className="grid grid-cols-4 gap-2">
                   <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
                     <Image
                       src="/facial-cleansing.jpg"
-                      alt="Facial Cleansing"
+                      alt="Pre-Op Protocol"
                       fill
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
-                      Cleansing
+                      Pre-Op Protocol
                     </span>
                   </div>
                   <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
                     <Image
                       src="/facial-massage.jpg"
-                      alt="Facial Massage"
+                      alt="Tissue Exam"
                       fill
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
-                      Massage
+                      Tissue Exam
                     </span>
                   </div>
                   <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
                     <Image
                       src="/face-testing.jpg"
-                      alt="Face Testing"
+                      alt="Dermoscopy"
                       fill
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
-                      Testing
+                      Dermoscopy
                     </span>
                   </div>
                   <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
                     <Image
                       src="/laser-rejuvenation.jpg"
-                      alt="Laser Rejuvenation"
+                      alt="Laser Logs"
                       fill
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
-                      Laser
+                      Laser Logs
                     </span>
                   </div>
                 </div>
