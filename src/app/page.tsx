@@ -1,7 +1,8 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ChevronDown,
   ArrowRight,
@@ -483,7 +484,7 @@ export default function MedNexaHomePage() {
       </section>
 
       {/* 3. DEDICATED PRODUCT SHOWCASE (One Nexus. Two Careful Tools) */}
-      <section id="showcase" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+      <section id="showcase" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <p className="text-xs font-bold tracking-widest uppercase text-[#FF4D3D]">
             The Two Products
@@ -573,6 +574,63 @@ export default function MedNexaHomePage() {
                 </p>
               </div>
 
+              {/* Real Procedural Specialties Strip */}
+              <div className="space-y-2">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0C1A2E]/60">
+                  Specialized Procedures
+                </span>
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
+                    <Image
+                      src="/facial-cleansing.jpg"
+                      alt="Facial Cleansing"
+                      fill
+                      className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                      Cleansing
+                    </span>
+                  </div>
+                  <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
+                    <Image
+                      src="/facial-massage.jpg"
+                      alt="Facial Massage"
+                      fill
+                      className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                      Massage
+                    </span>
+                  </div>
+                  <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
+                    <Image
+                      src="/face-testing.jpg"
+                      alt="Face Testing"
+                      fill
+                      className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                      Testing
+                    </span>
+                  </div>
+                  <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
+                    <Image
+                      src="/laser-rejuvenation.jpg"
+                      alt="Laser Rejuvenation"
+                      fill
+                      className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                      Laser
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               <div className="p-5 rounded-2xl bg-[#FAF6EF] border border-[#0C1A2E]/10 space-y-3">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#0C1A2E]">
                   Core Capabilities
@@ -615,7 +673,7 @@ export default function MedNexaHomePage() {
       </section>
 
       {/* 4. HOW IT WORKS (Three Unhurried Steps) */}
-      <section id="workflow" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+      <section id="workflow" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto scroll-mt-24">
         <div className="bg-white rounded-3xl p-8 sm:p-14 border border-[#0C1A2E]/10 shadow-sm space-y-12">
           <div className="max-w-2xl space-y-3">
             <p className="text-xs font-bold tracking-widest uppercase text-[#FF4D3D]">
@@ -670,7 +728,7 @@ export default function MedNexaHomePage() {
       </section>
 
       {/* 5. TRUST & SECURITY */}
-      <section id="security" className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+      <section id="security" className="py-16 px-4 sm:px-8 max-w-7xl mx-auto scroll-mt-24">
         <div className="bg-[#0C1A2E] text-white rounded-3xl p-8 sm:p-14 shadow-xl space-y-10">
           <div className="max-w-2xl space-y-3">
             <p className="text-xs font-bold tracking-widest uppercase text-[#FF4D3D]">
