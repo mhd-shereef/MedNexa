@@ -191,30 +191,32 @@ export default function MedNexaHomePage() {
                   <div className="px-3 py-1.5 text-[11px] font-semibold tracking-wider uppercase text-[#0C1A2E]/50 border-b border-slate-100">
                     Select Product Demo
                   </div>
-                  <Link
-                    href="/login"
-                    onClick={() => setDemoOpen(false)}
-                    className="p-2.5 rounded-xl hover:bg-[#FAF6EF] transition-colors flex items-center justify-between text-xs font-semibold text-[#0C1A2E] group"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-600" />
-                      <span>DERMA Clinical EMR</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-[#0C1A2E]/40 group-hover:translate-x-1 group-hover:text-emerald-700 transition-all" />
-                  </Link>
-                  <a
-                    href="https://diagnox-healthcare.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setDemoOpen(false)}
-                    className="p-2.5 rounded-xl hover:bg-[#FAF6EF] transition-colors flex items-center justify-between text-xs font-semibold text-[#0C1A2E] group"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#FF4D3D]" />
-                      <span>Diagnox Health Platform</span>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#0C1A2E]/40 group-hover:translate-x-0.5 group-hover:text-[#FF4D3D] transition-all" />
-                  </a>
+<Link
+                      href="https://derma-healthcare.vercel.app/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setDemoOpen(false)}
+                      className="p-2.5 rounded-xl hover:bg-[#FAF6EF] transition-colors flex items-center justify-between text-xs font-semibold text-[#0C1A2E] group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                        <span>DERMA Clinical EMR</span>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-[#0C1A2E]/40 group-hover:translate-x-0.5 group-hover:text-emerald-700 transition-all" />
+                    </Link>
+                    <a
+                      href="https://diagnox-healthcare.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setDemoOpen(false)}
+                      className="p-2.5 rounded-xl hover:bg-[#FAF6EF] transition-colors flex items-center justify-between text-xs font-semibold text-[#0C1A2E] group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#FF4D3D]" />
+                        <span>Diagnox Health Platform</span>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-[#0C1A2E]/40 group-hover:translate-x-0.5 group-hover:text-[#FF4D3D] transition-all" />
+                    </a>
                 </div>
               </div>
             </div>
@@ -335,14 +337,16 @@ export default function MedNexaHomePage() {
 
             {/* Mobile Actions */}
             <div className="pt-6 border-t border-[#0C1A2E]/10 space-y-2.5">
-              <Link
-                href="/login"
+              <a
+                href="https://derma-healthcare.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#0C1A2E] text-white font-semibold text-sm shadow-md"
               >
                 <span>Launch DERMA Demo</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                <ArrowUpRight className="w-4 h-4 text-emerald-300" />
+              </a>
               <a
                 href="https://diagnox-healthcare.vercel.app/"
                 target="_blank"
@@ -700,13 +704,15 @@ export default function MedNexaHomePage() {
                 <span>Explore DERMA Features</span>
                 <ArrowUpRight className="w-4 h-4 text-emerald-700 group-hover:translate-x-1 transition-transform" />
               </a>
-              <Link
-                href="/login"
+              <a
+                href="https://derma-healthcare.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0D3A35] hover:bg-[#134E48] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95"
               >
                 <span>Launch DEMO</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <ArrowUpRight className="w-3.5 h-3.5 text-emerald-300" />
+              </a>
             </div>
           </article>
         </div>
@@ -827,13 +833,15 @@ export default function MedNexaHomePage() {
             Test the live platforms today. Walk through the DERMA clinical practice demo or explore health risk analysis with Diagnox.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <Link
-              href="/login"
+            <a
+              href="https://derma-healthcare.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0C1A2E] hover:bg-[#162B4A] text-white font-semibold text-sm transition-all shadow-md active:scale-95"
             >
               <span>Launch DERMA Demo</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <ArrowUpRight className="w-4 h-4 text-emerald-300" />
+            </a>
             <a
               href="https://diagnox-healthcare.vercel.app/"
               target="_blank"
@@ -899,9 +907,15 @@ export default function MedNexaHomePage() {
                   </a>
                 </li>
                 <li>
-                  <Link href="/login" className="hover:text-white transition-colors">
+                  <a
+                    href="https://derma-healthcare.vercel.app/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors flex items-center gap-1"
+                  >
                     Practitioner DEMO
-                  </Link>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
+                  </a>
                 </li>
               </ul>
             </div>
