@@ -105,8 +105,10 @@ export default function MedNexaHomePage() {
                 <div className={`absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150 ${productsOpen ? 'block' : 'hidden'}`}>
                   <div className="w-[420px] bg-white rounded-2xl shadow-[0_20px_50px_rgba(12,26,46,0.16)] border border-[#0C1A2E]/10 p-3 grid gap-2">
                     {/* Product 1: DERMA */}
-                    <Link
-                      href="/derma"
+                    <a
+                      href="https://derma-healthcare.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setProductsOpen(false)}
                       className="p-3.5 rounded-xl hover:bg-[#FAF6EF] transition-colors flex items-start gap-3.5 group border border-transparent hover:border-[#0C1A2E]/10"
                     >
@@ -115,7 +117,10 @@ export default function MedNexaHomePage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className="font-serif font-bold text-base text-[#0C1A2E]">DERMA</span>
+                          <span className="font-serif font-bold text-base text-[#0C1A2E] flex items-center gap-1">
+                            DERMA
+                            <ArrowUpRight className="w-3.5 h-3.5 text-[#0C1A2E]/50 group-hover:text-emerald-700 transition-colors" />
+                          </span>
                           <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
                             Clinical EMR
                           </span>
@@ -124,7 +129,7 @@ export default function MedNexaHomePage() {
                           Specialized clinical charting, photographic mapping, and appointment management for dermatology.
                         </p>
                       </div>
-                    </Link>
+                    </a>
 
                     {/* Product 2: Diagnox */}
                     <a
@@ -267,18 +272,22 @@ export default function MedNexaHomePage() {
 
                 {mobileProductsOpen && (
                   <div className="space-y-2 pl-2 border-l-2 border-[#FF4D3D]">
-                    <Link
-                      href="/derma"
+                    <a
+                      href="https://derma-healthcare.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setMobileMenuOpen(false)}
                       className="block p-3 rounded-xl bg-white shadow-sm border border-[#0C1A2E]/10 space-y-1"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-serif font-bold text-sm text-[#0C1A2E]">DERMA</span>
+                        <span className="font-serif font-bold text-sm text-[#0C1A2E] flex items-center gap-1">
+                          DERMA
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[#FF4D3D]" />
+                        </span>
                         <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-800">Clinical EMR</span>
                       </div>
                       <p className="text-xs text-[#0C1A2E]/70">Dermatology clinical charting, photo mapping & visits.</p>
-                    </Link>
-
+                    </a>
                     <a
                       href="https://diagnox-healthcare.vercel.app/"
                       target="_blank"
@@ -376,13 +385,15 @@ export default function MedNexaHomePage() {
 
             {/* Hero CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/derma"
+              <a
+                href="https://derma-healthcare.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0C1A2E] hover:bg-[#162B4A] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg active:scale-95"
               >
                 <span>Explore DERMA</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                <ArrowUpRight className="w-4 h-4 text-emerald-300" />
+              </a>
               <a
                 href="https://diagnox-healthcare.vercel.app/"
                 target="_blank"
@@ -478,9 +489,14 @@ export default function MedNexaHomePage() {
                     <Stethoscope className="w-4 h-4 text-emerald-800" />
                     <span>DERMA · Patient Record & Mapping</span>
                   </span>
-                  <Link href="/derma" className="text-[11px] text-emerald-800 hover:underline flex items-center gap-0.5">
-                    View →
-                  </Link>
+<Link
+                      href="https://derma-healthcare.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-emerald-800 hover:underline flex items-center gap-0.5"
+                    >
+                      View →
+                    </Link>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between text-xs">
@@ -675,13 +691,15 @@ export default function MedNexaHomePage() {
             </div>
 
             <div className="pt-8 border-t border-[#0C1A2E]/10 mt-6 flex flex-wrap items-center justify-between gap-3">
-              <Link
-                href="/derma"
+              <a
+                href="https://derma-healthcare.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#0C1A2E] hover:text-emerald-800 transition-colors group"
               >
                 <span>Explore DERMA Features</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <ArrowUpRight className="w-4 h-4 text-emerald-700 group-hover:translate-x-1 transition-transform" />
+              </a>
               <Link
                 href="/login"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0D3A35] hover:bg-[#134E48] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95"
@@ -860,9 +878,15 @@ export default function MedNexaHomePage() {
               </h5>
               <ul className="text-xs space-y-2 text-slate-400">
                 <li>
-                  <Link href="/derma" className="hover:text-white transition-colors">
+                  <a
+                    href="https://derma-healthcare.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors flex items-center gap-1"
+                  >
                     DERMA Clinical EMR
-                  </Link>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#FF4D3D]" />
+                  </a>
                 </li>
                 <li>
                   <a
