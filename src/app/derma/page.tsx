@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -16,6 +17,7 @@ import {
   Lock,
   ClipboardList,
 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const clinicalModules = [
   {
@@ -58,6 +60,26 @@ const capabilities = [
   'Multi-provider encounter management & clinical queue',
   'Role-based access for doctors, nurses, receptionists, and administrators',
 ];
+
+const handleDemoLogin = async () => {
+  try {
+    const response = await fetch('/api/demo-login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success('Welcome to DERMA Demo!');
+      window.location.href = '/dashboard';
+    } else {
+      toast.error('Demo login failed. Please try again.');
+    }
+  } catch {
+    toast.error('Demo login failed. Please try again.');
+  }
+};
 
 export default function DermaShowcasePage() {
   return (
@@ -104,15 +126,13 @@ export default function DermaShowcasePage() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <a
-              href="https://derma-healthcare.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleDemoLogin}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0D3A35] hover:bg-[#134E48] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg active:scale-95"
             >
               <span>Launch Live Clinical DEMO</span>
-              <ArrowUpRight className="w-4 h-4 text-emerald-300" />
-            </a>
+              <ArrowRight className="w-4 h-4" />
+            </button>
             <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF6EF] text-[#0C1A2E] font-semibold text-sm border border-[#0C1A2E]/20 transition-all shadow-sm active:scale-95"
@@ -251,15 +271,13 @@ export default function DermaShowcasePage() {
             Walk through the full DERMA clinical practice demo with pre-filled patient records,
             visit notes, and photographic comparisons. No sign-up required.
           </p>
-          <a
-            href="https://derma-healthcare.vercel.app/login"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleDemoLogin}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0D3A35] hover:bg-[#134E48] text-white font-semibold text-sm transition-all shadow-md active:scale-95"
           >
             <span>Launch DEMO</span>
-            <ArrowUpRight className="w-4 h-4 text-emerald-300" />
-          </a>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
 
