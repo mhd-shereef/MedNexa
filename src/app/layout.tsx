@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <Providers>
           {children}

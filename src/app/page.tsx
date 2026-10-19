@@ -29,11 +29,13 @@ export default function MedNexaHomePage() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const demoDropdownRef = useRef<HTMLDivElement>(null);
+  const productsTriggerRef = useRef<HTMLButtonElement>(null);
 
   // Close dropdowns on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node) &&
+          productsTriggerRef.current && !productsTriggerRef.current.contains(event.target as Node)) {
         setProductsOpen(false);
       }
       if (demoDropdownRef.current && !demoDropdownRef.current.contains(event.target as Node)) {
@@ -43,6 +45,22 @@ export default function MedNexaHomePage() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleProductsKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setProductsOpen(false);
+      productsTriggerRef.current?.focus();
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setProductsOpen(!productsOpen);
+    }
+  };
+
+  const handleDemoKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setDemoOpen(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FAF6EF] text-[#0C1A2E] font-sans selection:bg-[#0C1A2E] selection:text-[#FAF6EF]">
@@ -69,18 +87,22 @@ export default function MedNexaHomePage() {
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-1 text-sm font-medium text-[#0C1A2E]/80">
               {/* Products Dropdown */}
-              <div className="relative group">
+              <div className="relative" ref={dropdownRef}>
                 <button
+                  ref={productsTriggerRef}
                   type="button"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full transition-all group-hover:bg-[#0C1A2E]/10 group-hover:text-[#0C1A2E] text-[#0C1A2E]/80"
+                  onClick={() => setProductsOpen(!productsOpen)}
+                  onKeyDown={handleProductsKeyDown}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full transition-all hover:bg-[#0C1A2E]/10 hover:text-[#0C1A2E] text-[#0C1A2E]/80"
                   aria-haspopup="true"
+                  aria-expanded={productsOpen}
                 >
                   <span>Products</span>
-                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
-                {/* Dropdown Menu with hover bridge */}
-                <div className="absolute top-full left-0 pt-2 hidden group-hover:block group-focus-within:block z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                {/* Dropdown Menu */}
+                <div className={`absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150 ${productsOpen ? 'block' : 'hidden'}`}>
                   <div className="w-[420px] bg-white rounded-2xl shadow-[0_20px_50px_rgba(12,26,46,0.16)] border border-[#0C1A2E]/10 p-3 grid gap-2">
                     {/* Product 1: DERMA */}
                     <Link
@@ -334,7 +356,7 @@ export default function MedNexaHomePage() {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0C1A2E]/15 text-xs font-semibold tracking-wider text-[#0C1A2E] uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FF4D3D]" />
-              <span>MedNexa ┬╖ Two systems, one nexus</span>
+              <span>MedNexa · Two systems, one nexus</span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0C1A2E] leading-[1.1]">
@@ -414,7 +436,7 @@ export default function MedNexaHomePage() {
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span className="flex items-center gap-1.5 text-[#0C1A2E]">
                     <Activity className="w-4 h-4 text-[#FF4D3D]" />
-                    <span>Diagnox ┬╖ Health Risk Index</span>
+                    <span>Diagnox · Health Risk Index</span>
                   </span>
                   <a
                     href="https://diagnox-healthcare.vercel.app/"
@@ -422,7 +444,7 @@ export default function MedNexaHomePage() {
                     rel="noopener noreferrer"
                     className="text-[11px] text-[#FF4D3D] hover:underline flex items-center gap-0.5"
                   >
-                    Open Γåù
+                    Open ↗
                   </a>
                 </div>
 
@@ -454,17 +476,17 @@ export default function MedNexaHomePage() {
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span className="flex items-center gap-1.5 text-[#0C1A2E]">
                     <Stethoscope className="w-4 h-4 text-emerald-800" />
-                    <span>DERMA ┬╖ Patient Record & Mapping</span>
+                    <span>DERMA · Patient Record & Mapping</span>
                   </span>
                   <Link href="/derma" className="text-[11px] text-emerald-800 hover:underline flex items-center gap-0.5">
-                    View ΓåÆ
+                    View →
                   </Link>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between text-xs">
                   <div>
-                    <p className="font-semibold text-slate-800">Visit #14 ΓÇó Lesion Progression</p>
-                    <p className="text-[11px] text-slate-500">Atypical nevus mapping ΓÇó Photographed</p>
+                    <p className="font-semibold text-slate-800">Visit #14 • Lesion Progression</p>
+                    <p className="text-[11px] text-slate-500">Atypical nevus mapping • Photographed</p>
                   </div>
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
                     Stable
@@ -473,7 +495,7 @@ export default function MedNexaHomePage() {
               </div>
 
               <div className="flex items-center justify-between pt-1 text-[11px] text-[#0C1A2E]/60">
-                <span>Screening insights ΓÇö not a diagnosis</span>
+                <span>Screening insights — not a diagnosis</span>
                 <span className="flex items-center gap-1">
                   <Lock className="w-3 h-3" /> Encrypted records
                 </span>
@@ -503,7 +525,7 @@ export default function MedNexaHomePage() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold tracking-wider uppercase text-[#0C1A2E]/60">
-                  01 ΓÇö For Individuals & Wellness Screening
+                  01 — For Individuals & Wellness Screening
                 </span>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
                   Diagnox Health
@@ -558,7 +580,7 @@ export default function MedNexaHomePage() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold tracking-wider uppercase text-[#0C1A2E]/60">
-                  02 ΓÇö For Dermatologists & Aesthetic Clinics
+                  02 — For Dermatologists & Aesthetic Clinics
                 </span>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
                   DERMA Platform
@@ -579,7 +601,7 @@ export default function MedNexaHomePage() {
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0C1A2E]/60">
                   Clinical EMR Modules
                 </span>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <div className="group/proc relative aspect-square rounded-xl overflow-hidden border border-[#0C1A2E]/10 bg-slate-100 shadow-sm">
                     <Image
                       src="/facial-cleansing.jpg"
@@ -588,7 +610,7 @@ export default function MedNexaHomePage() {
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                    <span className="absolute bottom-1.5 left-2 right-2 text-[11px] sm:text-[10px] font-semibold text-white leading-tight text-center px-1">
                       Pre-Op Protocol
                     </span>
                   </div>
@@ -600,7 +622,7 @@ export default function MedNexaHomePage() {
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                    <span className="absolute bottom-1.5 left-2 right-2 text-[11px] sm:text-[10px] font-semibold text-white leading-tight text-center px-1">
                       Tissue Exam
                     </span>
                   </div>
@@ -612,7 +634,7 @@ export default function MedNexaHomePage() {
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                    <span className="absolute bottom-1.5 left-2 right-2 text-[11px] sm:text-[10px] font-semibold text-white leading-tight text-center px-1">
                       Dermoscopy
                     </span>
                   </div>
@@ -624,7 +646,7 @@ export default function MedNexaHomePage() {
                       className="object-cover group-hover/proc:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-1 right-1 text-[10px] font-semibold text-white leading-tight text-center">
+                    <span className="absolute bottom-1.5 left-2 right-2 text-[11px] sm:text-[10px] font-semibold text-white leading-tight text-center px-1">
                       Laser Logs
                     </span>
                   </div>
@@ -696,7 +718,7 @@ export default function MedNexaHomePage() {
                 Connect
               </h3>
               <p className="text-xs sm:text-sm text-[#0C1A2E]/70 leading-relaxed">
-                Tell us who you are ΓÇö an individual, a wellness screening program, or a dermatology practice. Diagnox greets you with structured questions; DERMA loads your daily schedule seamlessly.
+                Tell us who you are — an individual, a wellness screening program, or a dermatology practice. Diagnox greets you with structured questions; DERMA loads your daily schedule seamlessly.
               </p>
             </div>
 
@@ -753,7 +775,7 @@ export default function MedNexaHomePage() {
             <div className="space-y-2">
               <strong className="block text-white text-sm font-semibold">Access Controls</strong>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Doctor, nurse, receptionist, clinic administrator ΓÇö each role operates strictly within its clinical scope.
+                Doctor, nurse, receptionist, clinic administrator — each role operates strictly within its clinical scope.
               </p>
             </div>
 
@@ -800,7 +822,7 @@ export default function MedNexaHomePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#FAF6EF] hover:bg-slate-200 text-[#0C1A2E] font-semibold text-sm border border-[#0C1A2E]/20 transition-all active:scale-95"
             >
-              <span>Launch Diagnox Γåù</span>
+              <span>Launch Diagnox ↗</span>
             </a>
           </div>
           <div className="pt-4 text-xs text-[#0C1A2E]/50">
@@ -849,7 +871,7 @@ export default function MedNexaHomePage() {
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
-                    Diagnox Screening Γåù
+                    Diagnox Screening ↗
                   </a>
                 </li>
                 <li>
@@ -886,7 +908,7 @@ export default function MedNexaHomePage() {
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <p>┬⌐ {new Date().getFullYear()} MedNexa Health Systems. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} MedNexa Health Systems. All rights reserved.</p>
             <p className="text-slate-400">Screening insights are not a medical diagnosis.</p>
           </div>
         </div>

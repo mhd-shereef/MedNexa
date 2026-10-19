@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useAuthStore } from '@/stores/auth.store';
 import { useUIStore } from '@/stores/ui.store';
 import { Bell, Moon, Sun, User, ChevronDown, ChevronLeft, ChevronRight, Building2, LogOut } from 'lucide-react';
@@ -11,8 +12,18 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 export function Header() {
   const { user, logout } = useAuthStore();
   const { sidebarOpen, setSidebarOpen } = useUIStore();
+  const [isMounted, setIsMounted] = useState(false);
 
-  if (typeof window === 'undefined') return null;
+  useEffect(() => { setIsMounted(true); }, []);
+
+  if (!isMounted) {
+    // SSR-safe skeleton to avoid layout shift
+    return (
+      <header className="sticky top-0 z-30 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="flex h-16 items-center justify-between px-4 lg:px-6" />
+      </header>
+    );
+  }
 
   return (
     <header className="sticky top-0 z-30 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

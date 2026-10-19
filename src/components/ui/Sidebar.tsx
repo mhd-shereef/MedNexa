@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -48,10 +49,22 @@ export function Sidebar() {
   const pathname = usePathname();
   const { user, hasRole } = useAuthStore();
   const { sidebarOpen, setSidebarOpen, mobileMenuOpen, setMobileMenuOpen } = useUIStore();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => { setIsMounted(true); }, []);
 
   const filteredNav = navigation.filter((item) => item.roles.some((r) => hasRole([r])));
 
-  if (typeof window === 'undefined') return null;
+  if (!isMounted) {
+    // SSR-safe skeleton to avoid layout shift
+    return (
+      <div className="fixed inset-y-0 left-0 z-40 w-64 bg-card border-r -translate-x-full lg:translate-x-0" aria-label="Sidebar">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between h-16 px-4 border-b" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

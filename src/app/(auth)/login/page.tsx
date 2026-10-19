@@ -51,11 +51,24 @@ export default function LoginPage() {
         mfaCode: formData.mfaCode || undefined,
       });
 
-      const { user, accessToken, refreshToken } = response.data;
+      const payload: any = response.data;
+      const authData = payload?.data ?? payload;
+      const user = authData?.user;
+      const accessToken = authData?.accessToken;
+      const refreshToken = authData?.refreshToken;
+
+      if (!user) {
+        throw new Error('Authentication response is missing user details');
+      }
+
       setTokens({ accessToken, refreshToken }, user);
       setUser(user);
       toast.success(`Welcome, Dr. ${user.lastName || user.firstName || 'Demo'}!`);
-      router.push('/dashboard');
+      if (typeof window !== 'undefined') {
+        window.location.href = '/dashboard';
+      } else {
+        router.push('/dashboard');
+      }
     } catch (error: unknown) {
       const axiosError = error as { response?: { data?: { error?: { message?: string } } } };
       const message = axiosError.response?.data?.error?.message ?? 'Invalid credentials';
@@ -127,7 +140,7 @@ export default function LoginPage() {
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#0D3A35]" />
               <span className="text-xs font-semibold tracking-wider uppercase text-slate-500">
-                Clinical Access
+                MedNexa Clinical Ecosystem · DERMA Physician OS
               </span>
             </div>
 
