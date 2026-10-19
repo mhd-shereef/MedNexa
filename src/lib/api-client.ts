@@ -3,11 +3,6 @@ import { getAccessToken, getRefreshToken, setTokens, clearTokens, refreshAccessT
 
 const getBaseApiUrl = (): string => {
   const envUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {
-    if (!envUrl || envUrl.includes('localhost')) {
-      return 'https://derma-healthcare.vercel.app/api/v1';
-    }
-  }
   return envUrl || 'http://localhost:3001/api/v1';
 };
 
@@ -38,13 +33,6 @@ class ApiClient {
   }
 
   private requestInterceptor(config: InternalAxiosRequestConfig) {
-    // Override localhost base URL at runtime when deployed
-    if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {
-      if (!config.baseURL || config.baseURL.includes('localhost')) {
-        config.baseURL = 'https://derma-healthcare.vercel.app/api/v1';
-      }
-    }
-
     const token = getAccessToken();
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
